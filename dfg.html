@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Photography Website</title>
+    <style>
+       body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9e8e8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(120deg, rgba(204, 181, 245, 0.5), rgba(107, 80, 152, 0.5));
+background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcCKithicWnjsFaJEv_DulDYR-ljdloIVx_g&usqp=CAU") ;
+background-size: contain;
+}
+
+
+
+        header {
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc2MXuRLFhyCt5OFb9sZ3gWd7ruUvGOq12KQ&usqp=CAU') center/cover no-repeat; /* Replace with your header background image */
+            color: #fff;
+            padding: 80px;
+            text-align: center;
+            transition: padding 0.3s;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+        h2{
+            content: icon;
+            size: 30px;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700; /* Change to your preferred hover color */
+        }
+
+        section {
+            padding: 40px;
+            transition: padding 0.3s;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            border: 2px solid #fff;
+            border-radius: 8px;
+        }
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Photography</h1>
+        <p>Capturing Moments, Creating Memories</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Our Photography Website</h2>
+        <p>Explore our stunning portfolio and discover the art of photography.</p>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="gallery">
+            <img src="data:image/jpeg;base64,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" alt="Photo 1" onclick="openLightbox('image1.jpg')">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHgRM-flk3sYATWdSEctiekhAn8nJCneWsKg&usqp=CAU" alt="">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6y6OBIg_Jlnpx6_Qt1Z_h89g6rAm0uOPKNQ&usqp=CAU">  
+          <!-- Add more images as needed -->
+        </div>
+        <div class="lightbox" onclick="closeLightbox()">
+            <img id="lightboxImage" src="" alt="Enlarged Photo">
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Learn more about our passionate team of photographers and our journey in the world of photography.
+            Explore our diverse portfolio, where each image is a tale waiting to be told. From the subtle play of light to the genuine expressions captured, we believe in the art of visual communication. Our commitment to excellence is reflected not only in the images we capture but also in the emotions we evoke.   
+        </p> </section>
+
+    <section id="contact">
+        <h2> <b>Contact Us </b></h2>
+        <form action="submit_form.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+    
+            <button type="submit">Submit</button>
+        </form>
+        <!-- Add a contact form or contact information as needed -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Photography. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openLightbox(imagePath) {
+            document.getElementById('lightboxImage').src = imagePath;
+            document.querySelector('.lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.querySelector('.lightbox').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
